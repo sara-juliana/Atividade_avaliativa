@@ -39,10 +39,10 @@ header {
 
 #logo-cupcake {
     position: absolute;
-    right: 80px;
-    top: 80px;
-    width: 60px;
-    height: 60px;
+    right: 40px;
+    top: 40px;
+    width: 30px;
+    height: 30px;
     transform: scale(3);
     transform-origin: 100% 0;
 }
@@ -213,7 +213,9 @@ a:hover {
     }
 
     #menu-nav {
-        display: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: 0.3s;
         position: absolute;
         top: 100%;
         left: 0;
@@ -223,9 +225,6 @@ a:hover {
         z-index: 1000;
     }
 
-    #menu-nav.active {
-        display: flex;
-    }
 
     nav ul {
         flex-direction: column;
@@ -255,8 +254,42 @@ a:hover {
     }
 }
 
-@media (min-width: 901px) {
+#menu-toggle {
+    display: none;
+}
+
+#menu-toggle:checked~#menu-nav {
+    max-height: 300px;
+}
+
+@media (max-width: 900px) {
+
+    main {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
     .menu-btn {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    #menu-nav {
+        max-height: 0;
+        overflow: hidden;
+        width: 100%;
+        background-image: linear-gradient(to left, #7fc7bd, #EDF7F2, #7fc7bd);
+    }
+
+    #menu-toggle:checked~#menu-nav {
+        max-height: 300px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        text-align: center;
+        padding: 10px 0;
     }
 }
