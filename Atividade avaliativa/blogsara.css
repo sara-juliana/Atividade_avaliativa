@@ -1,0 +1,262 @@
+* {
+    margin: 0;
+    line-height: 1.5;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+    font-size: 1.3rem;
+}
+
+header p {
+    font-size: 2rem;
+    color: #95c92c;
+}
+
+footer p {
+    padding: 15px;
+    font-size: 1.4rem;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #95c92c;
+}
+
+header {
+    position: relative;
+    text-align: center;
+    box-shadow: 5px 5px 15px 5px black;
+    background-image: linear-gradient(to left, #7fc7bd, #EDF7F2, #7fc7bd);
+    padding: 1rem 3rem;
+}
+
+#logo-cupcake {
+    position: absolute;
+    right: 80px;
+    top: 80px;
+    width: 60px;
+    height: 60px;
+    transform: scale(3);
+    transform-origin: 100% 0;
+}
+
+.subtitulo {
+    font-family: Georgia, cursive;
+    font-weight: bold;
+}
+
+
+h1 {
+    font-size: 5rem;
+    padding-top: 2%;
+    letter-spacing: 1rem;
+}
+
+h2 {
+    border-bottom: 1px dotted #4CB6C2;
+    border-left: 10px solid #4CB6C2;
+    padding-left: 10px;
+}
+
+main {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+section {
+    flex: 3;
+}
+
+aside {
+    flex: 1;
+}
+
+.card {
+    background-color: #EDF7F2;
+    border: 1px dotted #4CB6C2;
+    margin: 40px 0 40px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25), inset 0 -1px 0 rgba(255, 255, 255, 0.3);
+    transition: transform 0.24s ease, box-shadow 0.24s ease;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.35), inset 0 -1px 0 rgba(255, 255, 255, 0.35);
+}
+
+.card a {
+    color: #7fc7bd;
+    font-weight: bold;
+}
+
+.card a:hover {
+    color: #95c92c;
+}
+
+footer,
+header {
+    background: color #b5e655;
+    color: black;
+    margin: 0;
+    background-color: rgb(19, 143, 37);
+    transition: width 2s, height 4s, background-color 3s;
+    border-radius: 10px
+}
+
+header {
+    margin-bottom: 40px;
+    background-image: linear-gradient(to left, #7fc7bd, #EDF7F2, #7fc7bd);
+}
+
+footer {
+    box-shadow: 3px -8px -8px 3px rgba(96, 86, 86, 0.31);
+    margin-top: 40px;
+    background-image: linear-gradient(to left, #7fc7bd, #EDF7F2, #7fc7bd);
+    padding: 24px 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.footer-conteudo {
+    min-width: 180px;
+    flex: 1 1 180px;
+}
+
+.footer-voltar {
+    align-self: center;
+    flex: 1 1 100%;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.footer-voltar a {
+    color: #2e7d32;
+    font-weight: 700;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin-bottom: 4px;
+}
+
+a {
+    text-decoration: none;
+    color: #354c06;
+    font-size: 1.35rem;
+}
+
+a:hover {
+    color: rgb(116, 8, 188);
+}
+
+.autor {
+    text-align: right;
+    color: #4CB6C2;
+    font-style: italic;
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #4CB6C2;
+    padding: 10px 20px;
+}
+
+.recipe-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    margin: 15px 0;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+    object-fit: cover;
+}
+
+
+
+@media (max-width: 900px) {
+    * {
+        margin: 0 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+    }
+
+    main {
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    #menu-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 200px;
+        background-image: linear-gradient(to left, #7fc7bd, #EDF7F2, #7fc7bd);
+        flex-direction: column;
+        z-index: 1000;
+    }
+
+    #menu-nav.active {
+        display: flex;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 15px 0;
+        justify-content: flex-start;
+    }
+
+    nav ul li {
+        text-align: center;
+        border-bottom: 1px solid #4CB6C2;
+        padding: 10px;
+    }
+
+    nav ul li:last-child {
+        border-bottom: none;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        padding-top: 1rem;
+        letter-spacing: 0.5rem;
+    }
+
+    header p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (min-width: 901px) {
+    .menu-btn {
+        display: none;
+    }
+}
