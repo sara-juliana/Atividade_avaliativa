@@ -77,6 +77,12 @@ h2 {
     font-weight: bold;
 }
 
+.autor {
+    text-align: right;
+    color: #4CB6C2;
+    font-style: italic;
+}
+
 /* ===== CARDS ===== */
 .card {
     background: #EDF7F2;
@@ -156,7 +162,6 @@ a:hover {
 
 /* desktop */
 #menu-nav ul {
-    list-style: none;
     display: flex;
     justify-content: center;
     gap: 20px;
@@ -196,7 +201,4 @@ a:hover {
         padding: 10px 0;
     }
 
-    #menu-nav {
-        max-height: none;
-    }
 }
