@@ -35,6 +35,10 @@ header {
     box-shadow: 5px 5px 15px 5px black;
     background-image: linear-gradient(to left, #7fc7bd, #EDF7F2, #7fc7bd);
     padding: 1rem 3rem;
+    color: black;
+    margin: 0 0 40px;
+    border-radius: 10px;
+    transition: box-shadow 0.35s ease, transform 0.35s ease, filter 0.35s ease;
 }
 
 #logo-cupcake {
@@ -108,15 +112,7 @@ aside {
 footer,
 header {
     color: black;
-    margin: 0;
-    background-color: rgb(19, 143, 37);
-    transition: width 2s, height 4s, background-color 3s;
-    border-radius: 10px
-}
-
-header {
-    margin-bottom: 40px;
-    background-image: linear-gradient(to left, #7fc7bd, #EDF7F2, #7fc7bd);
+    border-radius: 10px;
 }
 
 footer {
@@ -128,6 +124,7 @@ footer {
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 1rem;
+    transition: box-shadow 0.35s ease, transform 0.35s ease, filter 0.35s ease;
 }
 
 .footer-conteudo {
@@ -172,14 +169,11 @@ a:hover {
     font-style: italic;
 }
 
-.menu-btn {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    cursor: pointer;
-    color: #4CB6C2;
-    padding: 10px 20px;
+header:hover,
+footer:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+    filter: saturate(1.05);
 }
 
 .recipe-image {
@@ -193,44 +187,46 @@ a:hover {
 }
 
 #menu-nav {
-    transition: 0.3s;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 200px;
-    background-image: linear-gradient(to left, #7fc7bd, #EDF7F2, #7fc7bd);
-    flex-direction: column;
-    z-index: 1000;
-}
-
-nav ul li {
-    text-align: center;
-    border-bottom: 1px solid #4CB6C2;
-    padding: 10px;
-}
-
-nav ul li:last-child {
-    border-bottom: none;
+    position: static;
+    width: auto;
 }
 
 #menu-toggle {
     display: none;
 }
 
-#menu-nav {
-    max-height: none;
-    overflow: visible;
-    position: static;
-    width: auto;
+.menu-btn {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+    width: 48px;
+    margin: 1rem auto 0;
+    padding: 10px;
+    border: 1px solid #4CB6C2;
+    border-radius: 999px;
+    background-color: rgba(237, 247, 242, 0.85);
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.menu-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+    background-color: #EDF7F2;
+}
+
+.menu-btn span {
+    display: block;
+    width: 24px;
+    height: 3px;
+    border-radius: 999px;
+    background-color: #4CB6C2;
+    transition: transform 0.25s ease, opacity 0.25s ease;
 }
 
 @media (max-width: 900px) {
-    * {
-        margin: 0 !important;
-        border-radius: 0 !important;
-        box-shadow: none !important;
-    }
-
     main {
         flex-direction: column;
         align-items: stretch;
@@ -238,37 +234,51 @@ nav ul li:last-child {
     }
 
     .menu-btn {
-        display: block;
-        flex-direction: column;
-        width: 25px;
-        height: 3px;
-        gap: 5px;
+        display: inline-flex;
     }
 
-    .menu-btn span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        background-color: #4CB6C2;
-        margin: 4px 0;
+    #menu-toggle:checked + .menu-btn span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    #menu-toggle:checked + .menu-btn span:nth-child(2) {
+        opacity: 0;
+    }
+
+    #menu-toggle:checked + .menu-btn span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
     }
 
     nav ul {
         flex-direction: column;
         gap: 0;
-        padding: 15px 0;
+        padding: 10px 0;
         justify-content: flex-start;
     }
 
-    #menu-toggle:checked~#menu-nav {
-        max-height: 300px;
+    nav ul li {
+        text-align: center;
+        border-bottom: 1px solid #4CB6C2;
+        padding: 10px;
+    }
+
+    nav ul li:last-child {
+        border-bottom: none;
     }
 
     #menu-nav {
         max-height: 0;
         overflow: hidden;
-        transition: 0.3s;
+        opacity: 0;
+        margin-top: 12px;
+        border-radius: 16px;
+        background-image: linear-gradient(to left, rgba(127, 199, 189, 0.95), rgba(237, 247, 242, 0.98), rgba(127, 199, 189, 0.95));
+        transition: max-height 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease;
     }
 
-
+    #menu-toggle:checked ~ #menu-nav {
+        max-height: 320px;
+        opacity: 1;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
 }
